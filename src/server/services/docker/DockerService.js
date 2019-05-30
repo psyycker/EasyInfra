@@ -1,4 +1,5 @@
 import CommandExecHelper from "../../CommandExecHelper";
+import DockerConfigGenerator from "./DockerConfigGenerator";
 
 class DockerService {
 
@@ -20,7 +21,9 @@ class DockerService {
     }
 
     test() {
-        this.init()
+       // this.init()
+        const generator = new DockerConfigGenerator()
+        generator.test()
     }
 
 }
