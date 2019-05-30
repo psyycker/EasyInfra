@@ -12,7 +12,7 @@ class DockerService {
     }
 
     init() {
-        const executor = new CommandExecHelper("docker ps")
+        const executor = new CommandExecHelper("docker ps");
         executor.exec().then(response => {
             console.log(response)
         }).catch(error => {
@@ -22,14 +22,14 @@ class DockerService {
 
     test() {
        // this.init()
-        const generator = new DockerConfigGenerator()
+        const generator = new DockerConfigGenerator();
         generator.test()
     }
 
 }
 
 
-const dockerService = new DockerService()
-dockerService.test()
+const dockerService = new DockerService();
+dockerService.test();
 
 export default DockerService

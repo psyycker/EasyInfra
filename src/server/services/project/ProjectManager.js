@@ -17,6 +17,10 @@ export default class ProjectManager {
         console.log(this.config)
     }
 
+    getProjectPath(){
+        return this.projectPath
+    }
+
 
     create() {
         fs.mkdirSync('./projects/' + this.name)

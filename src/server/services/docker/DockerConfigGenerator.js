@@ -1,6 +1,7 @@
 import {Keys, getObject} from "./DockerConfigKeys";
 import {dockerPs} from "./DockerCommandEncapsulator";
 import ProjectManager from "../project/ProjectManager";
+import GitService from "../git/GitService";
 
 export default class DockerConfigGenerator {
 
@@ -51,7 +52,13 @@ export default class DockerConfigGenerator {
             .then(result => {
                 //console.log(result)
             })
-        const projectMamanager = new ProjectManager("testProject")
+        const projectMamanager = new ProjectManager("Scrappy")
+        const gitService = new GitService(projectMamanager.getProjectPath())
+        gitService.setUsername("psyycker");
+        gitService.setPassword("MgT96dmaKvRC");
+        gitService.setRepo("https://github.com/psyycker/A.M.-Scrappy")
+        gitService.clone()
+
         // this.setImageName("ubuntu:18.10")
         // this.addEnvVariable("user=toto")
         // this.addEnvVariable("otherUSer=tata")

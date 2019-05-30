@@ -102,7 +102,7 @@
     "prettier": "1.17.1",
     "react-hot-loader": "4.8.8",
     "react-intl": "2.9.0",
-    "rimraf": "2.6.3",
+    "rimraf": "^2.6.3",
     "sanitize.css": "9.0.0",
     "sass-loader": "7.1.0",
     "style-loader": "0.23.1",
@@ -130,6 +130,7 @@
     "redux-actions": "2.6.5",
     "redux-logger": "3.0.6",
     "redux-thunk": "2.3.0",
+    "simple-git": "^1.113.0",
     "winston": "3.2.1"
   }
 }
