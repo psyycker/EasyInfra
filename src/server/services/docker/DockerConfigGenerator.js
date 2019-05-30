@@ -57,7 +57,7 @@ export default class DockerConfigGenerator {
         gitService.setUsername("psyycker");
         gitService.setPassword("MgT96dmaKvRC");
         gitService.setRepo("https://github.com/psyycker/A.M.-Scrappy")
-        gitService.clone()
+        gitService.clone("develop")
 
         // this.setImageName("ubuntu:18.10")
         // this.addEnvVariable("user=toto")

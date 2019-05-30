@@ -1,11 +1,13 @@
 import fs from "fs"
 import rimraf from "rimraf"
+import Git from "nodegit"
 
 export default class GitService {
 
   constructor(workDirPath){
     this.wordkDirPath = workDirPath
     this.client = require("simple-git")(workDirPath)
+
   }
 
   setUsername(username){
@@ -20,23 +22,21 @@ export default class GitService {
     this.repo = repo.replace("https://", "").replace("http://", "");
   }
 
-  doClone(){
+  doClone(branchName){
     const git = require('simple-git/promise');
     const remote = `https://${this.username}:${this.password}@${this.repo}`;
+    Git.Clone(remote, this.wordkDirPath + "/src/", {checkoutBranch: branchName}).then(function(repository) {
+    });
 
-    git().silent(false)
-      .clone(remote, this.wordkDirPath + '/src/')
-      .then(() => console.log('finished'))
-      .catch((err) => console.error('failed: ', err));
   }
 
-  clone(){
+  clone(branchName="master"){
     if (fs.existsSync(this.wordkDirPath + '/src/')) {
       rimraf(this.wordkDirPath + "/src/", () => {
-        this.doClone()
+        this.doClone(branchName)
       })
     } else {
-      this.doClone()
+      this.doClone(branchName)
     }
 
 

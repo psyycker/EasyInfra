@@ -120,6 +120,7 @@
     "cross-env": "5.2.0",
     "express": "4.17.1",
     "fast-safe-stringify": "2.0.6",
+    "nodegit": "^0.24.3",
     "prop-types": "^15.7.2",
     "react": "16.8.6",
     "react-dom": "16.8.6",
@@ -130,7 +131,6 @@
     "redux-actions": "2.6.5",
     "redux-logger": "3.0.6",
     "redux-thunk": "2.3.0",
-    "simple-git": "^1.113.0",
     "winston": "3.2.1"
   }
 }
