@@ -1,4 +1,5 @@
 import {Keys, getObject} from "./DockerConfigKeys";
+import {dockerPs} from "./DockerCommandEncapsulator";
 
 export default class DockerConfigGenerator {
 
@@ -45,12 +46,16 @@ export default class DockerConfigGenerator {
     }
 
     test() {
-        this.setImageName("ubuntu:18.10")
-        this.addEnvVariable("user=toto")
-        this.addEnvVariable("otherUSer=tata")
-        this.addConfig("SHELL_COMMAND", "apt update && apt upgrade -y")
-        this.addEnvVariable("otherUSer=titi")
-        console.log(this.generateDockerFile());
+        dockerPs()
+            .then(result => {
+                console.log(result)
+            })
+        // this.setImageName("ubuntu:18.10")
+        // this.addEnvVariable("user=toto")
+        // this.addEnvVariable("otherUSer=tata")
+        // this.addConfig("SHELL_COMMAND", "apt update && apt upgrade -y")
+        // this.addEnvVariable("otherUSer=titi")
+        // console.log(this.generateDockerFile());
 
     }
 }
