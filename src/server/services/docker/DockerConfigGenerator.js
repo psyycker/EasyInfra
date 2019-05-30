@@ -1,5 +1,6 @@
 import {Keys, getObject} from "./DockerConfigKeys";
 import {dockerPs} from "./DockerCommandEncapsulator";
+import ProjectManager from "../project/ProjectManager";
 
 export default class DockerConfigGenerator {
 
@@ -48,8 +49,9 @@ export default class DockerConfigGenerator {
     test() {
         dockerPs()
             .then(result => {
-                console.log(result)
+                //console.log(result)
             })
+        const projectMamanager = new ProjectManager("testProject")
         // this.setImageName("ubuntu:18.10")
         // this.addEnvVariable("user=toto")
         // this.addEnvVariable("otherUSer=tata")
