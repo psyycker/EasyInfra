@@ -5,10 +5,14 @@ export const Keys = {
         name: "Image Name",
         max: 1
     },
-    ARG : {
+    ENVIRONMENT_VARIABLE : {
         dockerFileKey: "ARG",
         position: 0,
         name: "Environment Variable"
+    },
+    SHELL_COMMAND : {
+        dockerFileKey: "RUN",
+        name: "Shell Command"
     }
 }
 
