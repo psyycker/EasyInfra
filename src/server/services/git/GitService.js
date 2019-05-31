@@ -6,8 +6,6 @@ export default class GitService {
 
   constructor(workDirPath){
     this.wordkDirPath = workDirPath
-    this.client = require("simple-git")(workDirPath)
-
   }
 
   setUsername(username){
@@ -23,7 +21,6 @@ export default class GitService {
   }
 
   doClone(branchName){
-    const git = require('simple-git/promise');
     const remote = `https://${this.username}:${this.password}@${this.repo}`;
     Git.Clone(remote, this.wordkDirPath + "/src/", {checkoutBranch: branchName}).then(function(repository) {
     });

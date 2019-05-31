@@ -5,7 +5,9 @@ export default class ProjectManager {
 
     constructor(name) {
         this.name = name
-        this.projectPath = './projects/' + name
+
+        console.log(__dirname)
+        this.projectPath = __dirname + 'projects/' + name
         if (!fs.existsSync('./projects')) {
             fs.mkdirSync('./projects');
         }
@@ -21,18 +23,31 @@ export default class ProjectManager {
         return this.projectPath
     }
 
+    getConfig() {
+        //Deep copy
+        return JSON.parse(JSON.stringify(this.config))
+    }
+
 
     create() {
         fs.mkdirSync('./projects/' + this.name)
         this.config = {
             name: this.name
         }
-        fs.writeFileSync(this.projectPath + "/config.json", JSON.stringify(this.config))
-        // will create the project folder with informations in it
+        this.save()
     }
 
     recoverData() {
-        this.config = fs.readFileSync(this.projectPath + '/config.json', 'utf-8')
+        this.config = JSON.parse(fs.readFileSync(this.projectPath + '/config.json', 'utf-8'))
+    }
+
+    save(){
+        fs.writeFileSync(this.projectPath + "/config.json", JSON.stringify(this.config, undefined, 2))
+    }
+
+    setGitInfos(infos) {
+        this.config.gitInfos = infos
+        this.save()
     }
 
 }

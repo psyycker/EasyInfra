@@ -10,7 +10,7 @@
     "node": ">=10.13.0"
   },
   "scripts": {
-    "dev": "cross-env HTTP_PORT=3001 NODE_ENV=development nodemon  --watch src --exec babel-node src/server/services/docker/DockerService --source-maps",
+    "dev": "cross-env HTTP_PORT=3001 NODE_ENV=development nodemon  --watch src --exec babel-node src/server/test.js --source-maps",
     "start": "cross-env NODE_ENV=production babel-node build/server",
     "prebuild": "rimraf build",
     "build": "npm run build:client && npm run build:server",

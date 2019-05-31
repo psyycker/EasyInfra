@@ -54,9 +54,6 @@ export default class DockerConfigGenerator {
             })
         const projectMamanager = new ProjectManager("Scrappy")
         const gitService = new GitService(projectMamanager.getProjectPath())
-        gitService.setUsername("psyycker");
-        gitService.setPassword("MgT96dmaKvRC");
-        gitService.setRepo("https://github.com/psyycker/A.M.-Scrappy")
         gitService.clone("develop")
 
         // this.setImageName("ubuntu:18.10")

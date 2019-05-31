@@ -8,3 +8,8 @@ export const dockerPs = async () => {
         return JSON.parse(line)
     })
 }
+
+export const dockerBuild = async (path) => {
+    let result = await new CommandExecHelper(`docker build ${path}`).exec()
+    return result
+}
